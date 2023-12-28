@@ -1,5 +1,3 @@
-package org.example;
-
 import java.util.Scanner;
 
 public class UserRegistration {
@@ -19,6 +17,7 @@ public class UserRegistration {
             System.out.println("Valid First Name: " + firstName);
         } else {
             System.out.println("Invalid First Name. Please follow the specified criteria.");
+            return;
         }
 
         // Get user input for Last Name
@@ -30,6 +29,7 @@ public class UserRegistration {
             System.out.println("Valid Last Name: " + lastName);
         } else {
             System.out.println("Invalid Last Name. Please follow the specified criteria.");
+            return;
         }
 
         // Get user input for Email
@@ -41,6 +41,7 @@ public class UserRegistration {
             System.out.println("Valid Email: " + email);
         } else {
             System.out.println("Invalid Email. Please follow the specified criteria.");
+            return;
         }
 
         // Get user input for Mobile Number
@@ -52,6 +53,18 @@ public class UserRegistration {
             System.out.println("Valid Mobile Number: " + mobileNumber);
         } else {
             System.out.println("Invalid Mobile Number. Please follow the specified criteria.");
+            return;
+        }
+
+        // Get user input for Password
+        System.out.print("Enter Password: ");
+        String password = scanner.nextLine();
+
+        // Validate and display the result for Password
+        if (isValidPassword(password)) {
+            System.out.println("Valid Password: " + password);
+        } else {
+            System.out.println("Invalid Password. Please follow the specified criteria.");
         }
 
         scanner.close();
@@ -73,5 +86,11 @@ public class UserRegistration {
     private static boolean isValidMobileNumber(String mobileNumber) {
         // Check if the Mobile Number follows the specified format: Country code followed by space and 10-digit number
         return mobileNumber.matches("\\d{2} \\d{10}");
+    }
+
+    // Function to validate the Password
+    private static boolean isValidPassword(String password) {
+        // Check if the Password has a minimum length of 8 characters
+        return password.length() >= 8;
     }
 }
