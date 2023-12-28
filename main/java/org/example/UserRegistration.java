@@ -43,6 +43,17 @@ public class UserRegistration {
             System.out.println("Invalid Email. Please follow the specified criteria.");
         }
 
+        // Get user input for Mobile Number
+        System.out.print("Enter Mobile Number: ");
+        String mobileNumber = scanner.nextLine();
+
+        // Validate and display the result for Mobile Number
+        if (isValidMobileNumber(mobileNumber)) {
+            System.out.println("Valid Mobile Number: " + mobileNumber);
+        } else {
+            System.out.println("Invalid Mobile Number. Please follow the specified criteria.");
+        }
+
         scanner.close();
     }
 
@@ -55,6 +66,12 @@ public class UserRegistration {
     // Function to validate the Email
     private static boolean isValidEmail(String email) {
         // Check if the Email follows the specified criteria
-        return email.matches("[abc]+(\\.[a-zA-Z]+)*@[bl]+(\\.[co]{2,})*(\\.[a-zA-Z]{2,})");
+        return email.matches("[a-zA-Z]+(\\.[a-zA-Z]+)*@[a-zA-Z]+(\\.[a-zA-Z]{2,})*(\\.[a-zA-Z]{2,})");
+    }
+
+    // Function to validate the Mobile Number
+    private static boolean isValidMobileNumber(String mobileNumber) {
+        // Check if the Mobile Number follows the specified format: Country code followed by space and 10-digit number
+        return mobileNumber.matches("\\d{2} \\d{10}");
     }
 }
