@@ -1,3 +1,5 @@
+package org.example;
+
 import java.util.Scanner;
 
 public class UserRegistration {
@@ -30,6 +32,17 @@ public class UserRegistration {
             System.out.println("Invalid Last Name. Please follow the specified criteria.");
         }
 
+        // Get user input for Email
+        System.out.print("Enter Email: ");
+        String email = scanner.nextLine();
+
+        // Validate and display the result for Email
+        if (isValidEmail(email)) {
+            System.out.println("Valid Email: " + email);
+        } else {
+            System.out.println("Invalid Email. Please follow the specified criteria.");
+        }
+
         scanner.close();
     }
 
@@ -37,5 +50,11 @@ public class UserRegistration {
     private static boolean isValidName(String name) {
         // Check if the Name starts with a capital letter and has a minimum length of 3 characters
         return name.matches("[A-Z][a-zA-Z]{2,}");
+    }
+
+    // Function to validate the Email
+    private static boolean isValidEmail(String email) {
+        // Check if the Email follows the specified criteria
+        return email.matches("[abc]+(\\.[a-zA-Z]+)*@[bl]+(\\.[co]{2,})*(\\.[a-zA-Z]{2,})");
     }
 }
