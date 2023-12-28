@@ -92,7 +92,7 @@ public class UserRegistration {
 
     // Function to validate the Password
     private static boolean isValidPassword(String password) {
-        // Check if the Password has a minimum length of 8 characters and at least 1 uppercase letter
-        return password.length() >= 8 && password.matches(".*[A-Z].*");
+        // Check if the Password has a minimum length of 8 characters, at least 1 uppercase letter, and at least 1 numeric digit
+        return password.length() >= 8 && password.matches(".*[A-Z].*") && password.matches(".*\\d.*");
     }
 }
