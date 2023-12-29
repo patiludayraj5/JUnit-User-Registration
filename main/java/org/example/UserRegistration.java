@@ -67,7 +67,11 @@ public class UserRegistration {
             System.out.println("Valid Password: " + password);
         } else {
             System.out.println("Invalid Password. Please follow the specified criteria.");
+            return;
         }
+
+        // Validate email samples separately
+        validateEmailSamples();
 
         scanner.close();
     }
@@ -94,5 +98,27 @@ public class UserRegistration {
     private static boolean isValidPassword(String password) {
         // Check if the Password has a minimum length of 8 characters, at least 1 uppercase letter, at least 1 numeric digit, and exactly 1 special character
         return password.length() >= 8 && password.matches(".*[A-Z].*") && password.matches(".*\\d.*") && password.matches(".*[^a-zA-Z0-9].*");
+    }
+
+    // Function to validate email samples separately
+    private static void validateEmailSamples() {
+        System.out.println("\nValidating Email Samples:");
+
+        String[] emailSamples = {
+                "abc.xyz@bl.co.in",
+                "john.doe@example.com",
+                "invalid.email@com",
+                "user@.com",
+                "user@domain",
+                "user@domain.",
+                "user@domain.c",
+                "@domain.com",
+                "user@-domain.com",
+                "user@domain-.com"
+        };
+
+        for (String emailSample : emailSamples) {
+            System.out.println(emailSample + ": " + (isValidEmail(emailSample) ? "Valid" : "Invalid"));
+        }
     }
 }
