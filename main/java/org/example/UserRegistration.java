@@ -77,31 +77,31 @@ public class UserRegistration {
     }
 
     // Function to validate the First and Last Name
-    private static boolean isValidName(String name) {
+    public static boolean isValidName(String name) {
         // Check if the Name starts with a capital letter and has a minimum length of 3 characters
         return name.matches("[A-Z][a-zA-Z]{2,}");
     }
 
     // Function to validate the Email
-    private static boolean isValidEmail(String email) {
+    public static boolean isValidEmail(String email) {
         // Check if the Email follows the specified criteria
         return email.matches("[a-zA-Z]+(\\.[a-zA-Z]+)*@[a-zA-Z]+(\\.[a-zA-Z]{2,})*(\\.[a-zA-Z]{2,})");
     }
 
     // Function to validate the Mobile Number
-    private static boolean isValidMobileNumber(String mobileNumber) {
+    public static boolean isValidMobileNumber(String mobileNumber) {
         // Check if the Mobile Number follows the specified format: Country code followed by space and 10-digit number
         return mobileNumber.matches("\\d{2} \\d{10}");
     }
 
     // Function to validate the Password
-    private static boolean isValidPassword(String password) {
+    public static boolean isValidPassword(String password) {
         // Check if the Password has a minimum length of 8 characters, at least 1 uppercase letter, at least 1 numeric digit, and exactly 1 special character
         return password.length() >= 8 && password.matches(".*[A-Z].*") && password.matches(".*\\d.*") && password.matches(".*[^a-zA-Z0-9].*");
     }
 
     // Function to validate email samples separately
-    private static void validateEmailSamples() {
+    public static void validateEmailSamples() {
         System.out.println("\nValidating Email Samples:");
 
         String[] emailSamples = {
